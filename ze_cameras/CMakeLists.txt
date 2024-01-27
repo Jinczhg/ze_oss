@@ -30,18 +30,18 @@ set(SOURCES
 
 cs_add_library(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 
-
+target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} ${CMAKE_DL_LIBS} yaml-cpp)
 ##########
 # GTESTS #
 ##########
 catkin_add_gtest(test_camera_impl test/test_camera_impl.cpp)
-target_link_libraries(test_camera_impl ${PROJECT_NAME} ${OpenCV_LIBRARIES})
+target_link_libraries(test_camera_impl ${PROJECT_NAME} ${OpenCV_LIBRARIES} yaml-cpp)
 
 catkin_add_gtest(test_camera_rig test/test_camera_rig.cpp)
-target_link_libraries(test_camera_rig ${PROJECT_NAME} ${OpenCV_LIBRARIES})
+target_link_libraries(test_camera_rig ${PROJECT_NAME} ${OpenCV_LIBRARIES} yaml-cpp)
 
 catkin_add_gtest(test_camera_utils test/test_camera_utils.cpp)
-target_link_libraries(test_camera_utils ${PROJECT_NAME} ${OpenCV_LIBRARIES})
+target_link_libraries(test_camera_utils ${PROJECT_NAME} ${OpenCV_LIBRARIES} yaml-cpp)
 
 ##########
 # EXPORT #
